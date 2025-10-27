@@ -69,13 +69,31 @@
       opacity: 0.8;
     }
     
+    /* Main Content Area */
     main{
       max-width:800px; /* 読みやすさを考慮した幅 */
       margin: 120px auto 60px;
       padding: 0 20px;
       text-align: left;
     }
+    
+    /* Animation Styles */
+    @keyframes contentFade{
+        from{ opacity:0; transform: translateY(18px) }
+        to{ opacity:1; transform: translateY(0) }
+    }
+    .fade-in-content {
+        animation: contentFade 0.9s ease both;
+    }
+    @keyframes fadeIn{
+        to{ opacity:1; }
+    }
+    .fade-in-item {
+        opacity: 0;
+        animation: fadeIn 0.8s ease forwards;
+    }
 
+    /* Typography */
     h1{
         font-family: var(--heading-font);
         font-weight: 600;
@@ -116,6 +134,7 @@
         margin-left: -1em;
     }
     
+    /* Footer */
     footer{
       text-align:center;
       padding: 40px 20px;
@@ -144,39 +163,39 @@
     </nav>
   </header>
 
-  <main>
-    <h1>プライバシーポリシー (個人情報保護方針)</h1>
-    <p style="text-align: right; color: var(--muted); font-size: 0.9em;">制定日：2025年10月27日</p>
+  <main class="fade-in-content">
+    <h1 style="animation-delay: 0.2s;" class="fade-in-item">プライバシーポリシー (個人情報保護方針)</h1>
+    <p style="text-align: right; color: var(--muted); font-size: 0.9em; animation-delay: 0.4s;" class="fade-in-item">制定日：2025年10月27日</p>
     
     <section>
-        <p>Kimi Design（以下「当アトリエ」といいます）は、傾聴サービスを通じてお客様の「心の声」を大切に受け止めることをお約束します。お客様からお預かりする個人情報につきましても、個人情報保護の重要性を認識し、以下の方針に基づき、その保護に努めます。</p>
+        <p style="animation-delay: 0.6s;" class="fade-in-item">Kimi Design（以下「当アトリエ」といいます）は、傾聴サービスを通じてお客様の「心の声」を大切に受け止めることをお約束します。お客様からお預かりする個人情報につきましても、個人情報保護の重要性を認識し、以下の方針に基づき、その保護に努めます。</p>
 
-        <h2>1. 個人情報の取得と利用目的</h2>
-        <p>当アトリエは、適法かつ公正な手段によって個人情報を取得し、以下の目的達成に必要な範囲内で利用いたします。</p>
+        <h2 style="animation-delay: 0.8s;" class="fade-in-item">1. 個人情報の取得と利用目的</h2>
+        <p style="animation-delay: 1.0s;" class="fade-in-item">当アトリエは、適法かつ公正な手段によって個人情報を取得し、以下の目的達成に必要な範囲内で利用いたします。</p>
         <ul>
-            <li>お問い合わせ、ご相談の受付、および回答のため</li>
-            <li>ご予約いただいた傾聴サービスの提供、および管理のため</li>
-            <li>当アトリエからの重要なお知らせやサービス改善に関する情報提供のため</li>
+            <li style="animation-delay: 1.2s;" class="fade-in-item">お問い合わせ、ご相談の受付、および回答のため</li>
+            <li style="animation-delay: 1.4s;" class="fade-in-item">ご予約いただいた傾聴サービスの提供、および管理のため</li>
+            <li style="animation-delay: 1.6s;" class="fade-in-item">当アトリエからの重要なお知らせやサービス改善に関する情報提供のため</li>
         </ul>
 
-        <h2>2. 機密保持と傾聴内容の取り扱い</h2>
-        <p>当アトリエのサービスの本質に基づき、セッション内でお話しいただいた内容（心の声、悩み、個人的な情報等）については、特に厳重な機密保持義務を負います。以下の原則を遵守いたします。</p>
+        <h2 style="animation-delay: 1.8s;" class="fade-in-item">2. 機密保持と傾聴内容の取り扱い</h2>
+        <p style="animation-delay: 2.0s;" class="fade-in-item">当アトリエのサービスの本質に基づき、セッション内でお話しいただいた内容（心の声、悩み、個人的な情報等）については、特に厳重な機密保持義務を負います。以下の原則を遵守いたします。</p>
         <ul>
-            <li>**守秘義務の徹底:** 法令に基づく開示義務がある場合を除き、お客様の同意なく第三者に開示または漏洩することは一切ありません。</li>
-            <li>**記録の管理:** セッションの記録は、サービスの品質維持および改善を目的とし、個人を特定できない形で厳重に管理されます。</li>
+            <li style="animation-delay: 2.2s;" class="fade-in-item">**守秘義務の徹底:** 法令に基づく開示義務がある場合を除き、お客様の同意なく第三者に開示または漏洩することは一切ありません。</li>
+            <li style="animation-delay: 2.4s;" class="fade-in-item">**記録の管理:** セッションの記録は、サービスの品質維持および改善を目的とし、個人を特定できない形で厳重に管理されます。</li>
         </ul>
 
-        <h2>3. 個人情報の第三者提供</h2>
-        <p>法令に定める場合を除き、個人情報を事前にお客様の同意を得ることなく、第三者に提供いたしません。</p>
+        <h2 style="animation-delay: 2.6s;" class="fade-in-item">3. 個人情報の第三者提供</h2>
+        <p style="animation-delay: 2.8s;" class="fade-in-item">法令に定める場合を除き、個人情報を事前にお客様の同意を得ることなく、第三者に提供いたしません。</p>
 
-        <h2>4. 安全管理措置</h2>
-        <p>当アトリエは、個人情報の正確性を保ち、これを安全に管理するため、情報への不正アクセス、紛失、破壊、改ざんおよび漏洩などを防止するための適切な措置を講じます。</p>
+        <h2 style="animation-delay: 3.0s;" class="fade-in-item">4. 安全管理措置</h2>
+        <p style="animation-delay: 3.2s;" class="fade-in-item">当アトリエは、個人情報の正確性を保ち、これを安全に管理するため、情報への不正アクセス、紛失、破壊、改ざんおよび漏洩などを防止するための適切な措置を講じます。</p>
 
-        <h2>5. 本ポリシーの継続的改善</h2>
-        <p>当アトリエは、個人情報保護に関する法令およびその他の規範を遵守するとともに、本ポリシーの内容を継続的に見直し、その改善に努めます。改定後のポリシーは、当ページに掲載したときから効力を生じるものとします。</p>
+        <h2 style="animation-delay: 3.4s;" class="fade-in-item">5. 本ポリシーの継続的改善</h2>
+        <p style="animation-delay: 3.6s;" class="fade-in-item">当アトリエは、個人情報保護に関する法令およびその他の規範を遵守するとともに、本ポリシーの内容を継続的に見直し、その改善に努めます。改定後のポリシーは、当ページに掲載したときから効力を生じるものとします。</p>
 
-        <h2>6. お問い合わせ窓口</h2>
-        <p>当アトリエのプライバシーポリシーに関するお問い合わせは、「Contact」ページよりお願いいたします。</p>
+        <h2 style="animation-delay: 3.8s;" class="fade-in-item">6. お問い合わせ窓口</h2>
+        <p style="animation-delay: 4.0s;" class="fade-in-item">当アトリエのプライバシーポリシーに関するお問い合わせは、「Contact」ページよりお願いいたします。</p>
     </section>
   </main>
 
