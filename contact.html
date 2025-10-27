@@ -7,23 +7,29 @@
   <meta name="description" content="Kimi Designのお問い合わせページです。心の声をお聞きし、相談のサポートを行う小さなアトリエです。">
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500&family=Outfit:wght@400;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&family=Outfit:wght@400;600&display=swap');
 
     :root{
       --bg: #f8f4ef;
       --text: #463a31;
       --muted: #8d7b6a;
       --accent: #c49b7e;
+      --heading-font: "Outfit", sans-serif;
+      --body-font: "Noto Serif JP", serif;
     }
 
+    /* Reset & Base Styles */
     *{box-sizing:border-box;}
+    html { scroll-behavior: smooth; }
     body{
       margin:0;
-      font-family: "Noto Serif JP", "Outfit", sans-serif;
+      font-family: var(--body-font);
       background: var(--bg);
       color: var(--text);
+      line-height: 1.7;
     }
 
+    /* Header & Navigation (index.htmlと統一) */
     header{
       position: fixed;
       top:0; left:0; right:0;
@@ -37,12 +43,15 @@
       z-index: 10;
     }
 
-    .logo{
-      font-family: 'Outfit', sans-serif;
-      font-size:1.05rem;
-      color:var(--text);
-      letter-spacing:0.06em;
+    .logo img{
+      height:40px;
       cursor:pointer;
+      transition: transform .3s;
+      max-width: 100%; 
+      height: auto;
+    }
+    .logo img:hover{
+      transform: scale(1.05);
     }
 
     nav a{
@@ -50,45 +59,112 @@
       text-decoration:none;
       color:var(--text);
       font-weight:500;
-      transition: color .25s;
+      transition: color .25s, opacity .3s;
+      font-family: var(--heading-font);
+      letter-spacing: 0.05em;
     }
-    nav a:hover{ color: var(--accent); }
-
+    nav a:hover{
+      color: var(--accent);
+      opacity: 0.8;
+    }
+    
     main{
-      max-width:900px;
-      margin: 120px auto;
+      max-width:600px; /* フォームに最適な幅に調整 */
+      margin: 120px auto 60px;
       padding: 0 20px;
       text-align:center;
     }
 
-    h2{ margin-top:0; font-weight:500; }
-    p{ line-height:1.8; color: var(--text); }
+    .contact-container {
+        text-align: left;
+        padding: 40px;
+        background: rgba(255, 255, 255, 0.85);
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    }
+    
+    h2{ 
+      margin-top:0; 
+      font-family: var(--heading-font);
+      font-weight: 600;
+      font-size: 1.8rem;
+      text-align: center;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    .contact-container > p { 
+      line-height:1.8; 
+      color: var(--muted); 
+      text-align: center;
+      margin-bottom: 30px;
+    }
 
-    input, textarea {
+    /* フォームと入力フィールドのスタイル調整 (水の要素) */
+    .form-group {
+        margin-bottom: 20px;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 500;
+        color: var(--text);
+        font-size: 0.95rem;
+    }
+    .required {
+        color: var(--accent);
+        font-size: 0.85em;
+        margin-left: 5px;
+    }
+
+    input[type="text"], 
+    input[type="email"], 
+    textarea {
       width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 6px;
+      padding: 12px;
+      /* 変更点: 角を丸くし、水の流れを意識 */
+      border: 1px solid #ddd;
+      border-radius: 8px; 
       font-family: inherit;
+      font-size: 1rem;
+      transition: border-color .3s, box-shadow .3s;
+      background-color: #ffffff;
+    }
+    input:focus, textarea:focus {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 1px var(--accent);
+        outline: none;
     }
 
-    button {
-      padding: 10px 20px;
+    /* ボタンのスタイル調整 (index.htmlのCTAと統一) */
+    button[type="submit"] {
+      display: block;
+      width: 100%;
+      padding: 12px 20px;
+      margin-top: 30px;
       background: var(--accent);
-      color: #fff;
+      color: var(--bg);
       border: none;
-      border-radius: 6px;
+      /* 変更点: CTAボタンと同じ丸みに */
+      border-radius: 20px; 
       cursor: pointer;
-      font-size: 1rem;
+      font-size: 1.1rem;
+      font-family: var(--heading-font);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      transition: background .3s, transform .3s;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
-    button:hover { background: #b68c6d; }
+    button[type="submit"]:hover { 
+      background: #cfa891; 
+      transform: translateY(-1px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
 
     footer{
       text-align:center;
       padding: 40px 20px;
       color: var(--muted);
-      font-size:0.95rem;
+      font-size:0.9rem;
       border-top: 1px solid rgba(0,0,0,0.03);
       margin-top: 60px;
     }
@@ -96,30 +172,56 @@
 
   <script>
     function goHome() {
-      window.location.replace('index.html');
+      // index.htmlのロゴとナビゲーションのクリックイベントを修正
+      window.location.href = 'index.html'; 
     }
   </script>
 </head>
 <body>
   <header>
-    <div class="logo" onclick="goHome()">Kimi Design</div>
+    <div class="logo" onclick="goHome()">
+      <!-- index.htmlと統一 -->
+      <img src="rogo.jpeg" alt="Kimi Design">
+    </div>
     <nav>
-      <a href="#" onclick="goHome()">Home</a>
+      <!-- index.htmlと統一 -->
+      <a href="index.html">Home</a>
+      <a href="privacy.html">プライバシー</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
 
   <main>
     <section class="contact">
-      <h2>お問い合わせ</h2>
-      <p>こちらからご相談やお問い合わせを受け付けています。内容をお聞きして、心の声の整理のサポートを行います。</p>
-      
-      <!-- Formspree フォーム -->
-      <form action="https://formspree.io/f/your-form-id" method="POST">
-        <input type="text" name="name" placeholder="お名前" required>
-        <input type="email" name="email" placeholder="メールアドレス" required>
-        <textarea name="message" placeholder="お問い合わせ内容" rows="6" required></textarea>
-        <button type="submit">送信</button>
-      </form>
+      <div class="contact-container">
+        <h2>ご相談・お問い合わせ</h2>
+        <p>あなたの心の声をお聞かせください。優しく受けとめ、整理のお手伝いをいたします。お申し込みは下のフォームからお願いいたします。</p>
+        
+        <!-- Formspree フォーム -->
+        <form action="https://formspree.io/f/your-form-id" method="POST">
+            <div class="form-group">
+                <label for="name">お名前 <span class="required">（必須）</span></label>
+                <input type="text" id="name" name="name" placeholder="例：山田 太郎" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">メールアドレス <span class="required">（必須）</span></label>
+                <input type="email" id="email" name="email" placeholder="例：your.email@example.com" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="topic">ご相談のテーマ（任意）</label>
+                <input type="text" id="topic" name="topic" placeholder="例：仕事の人間関係、将来への不安など">
+            </div>
+
+            <div class="form-group">
+                <label for="message">今の「心の声」を自由にご記入ください <span class="required">（必須）</span></label>
+                <textarea id="message" name="message" placeholder="セッションで話したいこと、今抱えている気持ちなど、あなたの言葉でご記入ください。" rows="8" required></textarea>
+            </div>
+
+            <button type="submit">この想いを送信する</button>
+        </form>
+      </div>
     </section>
   </main>
 
