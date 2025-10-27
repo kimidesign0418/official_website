@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>料金案内 (Price) | Kimi Design</title>
+    <meta name="description" content="Kimi Designの傾聴サービスは、まず初回限定で30分3,000円からご利用いただけます。心の声を整理するための最初のステップを応援します。">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&family=Outfit:wght@400;600&display=swap');
+
+        :root{
+            --bg: #f8f4ef;
+            --text: #463a31;
+            --muted: #8d7b6a;
+            --accent: #c49b7e;
+            --heading-font: "Outfit", sans-serif;
+            --body-font: "Noto Serif JP", serif;
+        }
+
+        /* Base Styles and Layout */
+        *{box-sizing: border-box}
+        body{
+            margin:0;
+            font-family: var(--body-font);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Header (index.htmlと共通) */
+        header{
+            position: fixed;
+            top:0; left:0; right:0;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:14px 28px;
+            background: rgba(255,255,255,0.75);
+            backdrop-filter: blur(6px);
+            border-bottom: 1px solid rgba(0,0,0,0.03);
+            z-index: 10;
+        }
+
+        .logo img{
+            height:40px;
+            cursor:pointer;
+            transition: transform .3s;
+        }
+        .logo img:hover{
+            transform: scale(1.05);
+        }
+
+        nav a{
+            margin-left:18px;
+            text-decoration:none;
+            color:var(--text);
+            font-weight:500;
+            transition: color .25s, transform .3s;
+            font-family: var(--heading-font);
+            letter-spacing: 0.05em;
+        }
+        nav a:hover{
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+        
+        main{
+            max-width:800px;
+            margin: 120px auto 60px;
+            padding: 0 20px;
+            text-align: center;
+            animation: contentFade 0.9s ease both;
+        }
+
+        /* Animations */
+        @keyframes contentFade{
+            from{ opacity:0; transform: translateY(18px) }
+            to{ opacity:1; transform: translateY(0) }
+        }
+        @keyframes slideIn{
+            from{ opacity:0; transform: translateY(20px); }
+            to{ opacity:1; transform: translateY(0); }
+        }
+
+        /* Main Content Styling */
+        h1{
+            font-family: var(--heading-font);
+            font-weight: 600;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            animation: slideIn 1s ease-out;
+        }
+        .sub-heading {
+            color: var(--muted);
+            font-size: 1.1rem;
+            margin-bottom: 60px;
+            animation: slideIn 1.2s ease-out 0.2s both;
+            opacity: 0;
+        }
+        .section-p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            text-align: left;
+            animation: contentFade 1s ease both 0.5s;
+        }
+
+
+        /* Single Price Card */
+        .price-card {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border-top: 8px solid var(--accent);
+            max-width: 450px;
+            margin: 40px auto;
+            animation: contentFade 1s ease both 0.7s;
+        }
+
+        .price-card h2 {
+            font-family: var(--body-font);
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+        .price-card .duration {
+            font-family: var(--heading-font);
+            font-size: 1.1rem;
+            color: var(--muted);
+            margin-bottom: 10px;
+        }
+        .price-card .price-tag {
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 25px;
+            display: block;
+        }
+        .price-card .price-tag span {
+             font-size:0.5em; 
+             font-weight:400;
+        }
+
+        .price-card p {
+            font-size: 1rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--text); /* プライマリカラーとして使用 */
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-family: var(--heading-font);
+            font-weight: 600;
+            margin-top: 15px;
+            transition: background 0.3s, transform 0.2s;
+            letter-spacing: 0.05em;
+        }
+        .cta-button:hover {
+            background: #5d4e41;
+            transform: translateY(-2px);
+        }
+
+        /* Next Step Section */
+        .next-step {
+            max-width: 600px;
+            margin: 60px auto 0;
+            padding: 30px;
+            background: #fff;
+            border-radius: 12px;
+            border: 1px solid rgba(0,0,0,0.05);
+            text-align: left;
+            animation: contentFade 1s ease both 1.2s;
+        }
+        .next-step h3 {
+            color: var(--accent);
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-top: 0;
+            border-bottom: 1px solid rgba(196, 155, 126, 0.5);
+            padding-bottom: 8px;
+        }
+        .next-step p {
+            margin-bottom: 0;
+            color: var(--text);
+        }
+
+        /* Footer (index.htmlと共通) */
+        footer{
+            text-align:center;
+            padding: 40px 20px;
+            color: var(--muted);
+            font-size:0.95rem;
+            border-top: 1px solid rgba(0,0,0,0.03);
+            margin-top: 60px;
+        }
+
+        @media (max-width: 600px) {
+            header { padding: 10px 15px; }
+            nav a { margin-left: 10px; font-size: 0.9rem; }
+            h1 { font-size: 1.8rem; }
+            .price-card { padding: 30px; max-width: 100%; }
+            .price-card .price-tag { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo" onclick="location.href='index.html'">
+            <img src="rogo.jpeg" alt="Kimi Design">
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="price.html">Price</a>
+            <a href="privacy.html">プライバシー</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>心の声を整理する最初のステップ</h1>
+        <p class="sub-heading">まずは一度、お話ししてみませんか？</p>
+
+        <p class="section-p">Kimi Designでは、初めての方に安心してご利用いただけるよう、特別なプランをご用意しております。あなたの「今」の気持ちをそっと見つめる、大切な一歩を踏み出しましょう。</p>
+
+        <!-- 初回限定プランカード -->
+        <div class="price-card">
+            <h2>初回限定プラン</h2>
+            <div class="duration">30分 / お一人様一回限り</div>
+            <span class="price-tag">¥3,000<span style="font-size:0.5em; font-weight:400;">（税込）</span></span>
+            <p>心の声が少しだけ詰まっている、まずは短い時間で試してみたいという方に最適です。</p>
+            <a href="contact.html?plan=initial" class="cta-button">初回セッションを予約する</a>
+        </div>
+        
+        <!-- 2回目以降の案内 -->
+        <div class="next-step">
+            <h3>2回目以降のセッションについて</h3>
+            <p>初回セッションを通じて、継続的なサポートが必要だと感じられた方へは、お客様の内省の深さやご希望に応じて、最適なプラン（60分セッション、お得な継続パッケージなど）を**初回セッション終了後に個別でメールにて**ご案内させていただきます。</p>
+        </div>
+        
+        <div class="next-step" style="margin-top: 30px; animation-delay: 1.4s;">
+            <h3>お支払いに関する注意事項</h3>
+            <p style="font-size: 0.95rem; color: var(--muted);">・お支払いは、銀行振込またはクレジットカード（Stripe決済利用）にて、セッション実施の3日前までにお願いいたします。</p>
+            <p style="font-size: 0.95rem; color: var(--muted);">・キャンセルポリシーについては、ご予約時に詳細をご連絡いたします。</p>
+        </div>
+
+    </main>
+
+    <footer>
+        &copy; 2025 Kimi Design
+    </footer>
+</body>
+</html>
