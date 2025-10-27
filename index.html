@@ -38,17 +38,13 @@
       z-index: 10;
     }
 
-    .logo{
-      font-family: 'Outfit', sans-serif;
-      font-size:1.05rem;
-      color:var(--text);
-      letter-spacing:0.06em;
+    .logo img{
+      height:40px;
       cursor:pointer;
       transition: transform .3s;
     }
-    .logo:hover{
+    .logo img:hover{
       transform: scale(1.05);
-      color: var(--accent);
     }
 
     nav a{
@@ -97,7 +93,6 @@
       animation: fadeIn 1.2s ease forwards;
       opacity:0;
     }
-
     .hero p:nth-of-type(1){ animation-delay: 0.5s; }
     .hero p:nth-of-type(2){ animation-delay: 0.8s; }
 
@@ -127,7 +122,9 @@
 </head>
 <body>
   <header>
-    <div class="logo" onclick="location.href='index.html'">Kimi Design</div>
+    <div class="logo" onclick="location.href='index.html'">
+      <img src="images/logo.jpeg" alt="Kimi Design">
+    </div>
     <nav>
       <a href="index.html">Home</a>
       <a href="contact.html">Contact</a>
